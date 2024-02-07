@@ -21,7 +21,7 @@ class UserRegistrationView(SuccessMessageMixin, CreateView):
 
     model = User
     form_class = UserRegistrationForm
-    template_name: str = 'users/registration.html'
+    template_name: str = 'registration.html'
     success_url: str = reverse_lazy('users:login')
     success_message: str = 'Congratulations! You are successfully registered!'
 
@@ -30,7 +30,7 @@ class UserProfileView( UpdateView):
 
     model = User
     form_class = UserProfileForm
-    template_name: str = 'users/profile.html'
+    template_name: str = 'profile.html'
 
     def get_success_url(self) -> str:
         return reverse_lazy('users:profile', args=(self.object.id,))
@@ -38,7 +38,7 @@ class UserProfileView( UpdateView):
 
 class EmailVerificationView( TemplateView):
 
-    template_name: str = 'users/email_verification.html'
+    template_name: str = 'email_verification.html'
 
     def get(self, request, *args: any, **kwargs: dict[str, any]):
         code = kwargs['code']
@@ -51,3 +51,7 @@ class EmailVerificationView( TemplateView):
             return super(EmailVerificationView, self).get(request, *args, **kwargs)
         else:
             return HttpResponseRedirect(reverse('index'))
+
+
+class LogoutView():
+    pass
