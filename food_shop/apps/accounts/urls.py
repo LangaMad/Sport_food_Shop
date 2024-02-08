@@ -1,11 +1,6 @@
 from django.urls import path
 from .views import *
 
-from django.contrib.auth.views import LogoutView
-from django.contrib.auth.views import LoginView
-
-
-app_name = 'accounts'
 
 
 urlpatterns = [
