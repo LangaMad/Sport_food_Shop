@@ -21,6 +21,7 @@ class EmailVerification(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     expiration = models.DateTimeField()
 
+
     def __str__(self) -> str:
         return f'EmailVerification object for {self.user.email}'
 
