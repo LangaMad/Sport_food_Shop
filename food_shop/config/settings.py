@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+DOMAIN_NAME: str = 'com'
 
 # Application definition
 
@@ -37,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 
     # my apps
     'apps.accounts',
@@ -52,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -140,3 +146,21 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+if DEBUG:
+    EMAIL_BACKEND: str = 'django.core.mail.backends.console.EmailBackend'
+else:
+    EMAIL_HOST: str = 'smtp.gmail.com'
+    EMAIL_PORT: str = '465'
+    EMAIL_HOST_USER: str = 'artykovh@gmail.com'
+    EMAIL_HOST_PASSWORD: str = 'azyo hwhb fwcy rexq'
+    EMAIL_USE_SSL: bool = True  # Используйте False, если не требуется SSL
+
+AUTHENTICATION_BACKENDS: list[str] = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+SITE_ID: int = 1
+
