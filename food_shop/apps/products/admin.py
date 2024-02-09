@@ -15,7 +15,7 @@ class SubCategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'description', 'price', 'image', 'subcategory']
+    list_display = ['name', 'description',  'price', 'image', 'subcategory']
     readonly_fields = ['created']
 
 

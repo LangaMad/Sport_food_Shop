@@ -20,11 +20,13 @@ class SubCategory(models.Model):
 class Product(models.Model):
     name = models.CharField('Одежда', max_length=50)
     description = models.TextField('Описание')
-    price = models.DecimalField('Цена',  max_digits=10, decimal_places=2,)
-    image = models.ImageField('Изображение')
+    price = models.DecimalField('Цена', max_digits=10, decimal_places=2)
+    image = models.ImageField('Фото', upload_to='products/')
     subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE)
     created = models.DateTimeField('Дата создания', auto_now_add=True)
 
-
     def __str__(self):
         return self.name
+
+
+
