@@ -19,12 +19,10 @@ class SubCategory(models.Model):
 
 class Product(models.Model):
     name = models.CharField('Одежда', max_length=50)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     description = models.TextField('Описание')
     price = models.DecimalField('Цена', max_digits=10, decimal_places=2)
-
-
-
+    image = models.ImageField('Изображение')
+    subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE)
 
 
     def __str__(self):
