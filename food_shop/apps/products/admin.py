@@ -16,7 +16,7 @@ class SubCategoryAdmin(admin.ModelAdmin):
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display = ['name', 'description',  'price', 'image', 'subcategory']
-    prepopulated_fields = {'slug': ('name',)}
+    readonly_fields = ['created']
 
 
 
