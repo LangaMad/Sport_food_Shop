@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'bootstrap5',
 
     # my apps
     'apps.accounts',
@@ -73,6 +74,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'apps.cart.cart_processor.get_cart',
             ],
         },
     },
@@ -163,4 +165,6 @@ AUTHENTICATION_BACKENDS: list[str] = [
 ]
 
 SITE_ID: int = 1
+
+CART_SESSION_ID = 'cart'
 
