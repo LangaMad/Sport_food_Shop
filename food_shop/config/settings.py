@@ -43,11 +43,14 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'bootstrap5',
+    'rest_framework',
+    'django_filters',
 
     # my apps
     'apps.accounts',
     'apps.cart',
     'apps.products',
+
 ]
 
 MIDDLEWARE = [
