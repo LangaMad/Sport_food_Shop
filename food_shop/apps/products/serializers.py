@@ -10,7 +10,7 @@ class CategorySerializer(serializers.ModelSerializer):
 
 
 class SubCategorySerializer(serializers.ModelSerializer):
-    category = CategorySerializer()
+
     class Meta:
         model = SubCategory
         fields = ['name','slug','category']
@@ -19,9 +19,8 @@ class SubCategorySerializer(serializers.ModelSerializer):
 
 
 class ProductSerializer(serializers.ModelSerializer):
-    subcategory = SubCategorySerializer()
     class Meta:
         model = Product
-        fields = ['name','description','price','subcategory','image']
+        fields = ['id','name','description','price','subcategory','image']
         read_only_fields = ['id','created']
 
