@@ -1,4 +1,5 @@
 from django.db import models
+from ..accounts.models import User
 
 # Create your models here.
 class Category(models.Model):
@@ -18,6 +19,7 @@ class SubCategory(models.Model):
         return self.name
 
 class Product(models.Model):
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField('Одежда', max_length=50)
     description = models.TextField('Описание')
     price = models.DecimalField('Цена', max_digits=10, decimal_places=2)
@@ -27,6 +29,7 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
 
 
 
