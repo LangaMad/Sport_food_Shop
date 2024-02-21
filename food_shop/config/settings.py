@@ -171,3 +171,8 @@ SITE_ID: int = 1
 
 CART_SESSION_ID = 'cart'
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ]
+}
